@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="\static\app.css">
+    <link rel="stylesheet" href="\static\home\login.css">
+    <script src="https://kit.fontawesome.com/04f8b90c30.js" crossorigin="anonymous"></script>
+
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.16/dist/css/uikit.min.css" />
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.16/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.16/dist/js/uikit-icons.min.js"></script>
+</head>
+<body>
+    <div class="login-container">
+        <div class="form-container">
+            <h1>Login</h1>
+            <form method="GET" action="/teste">
+                <div class="input-container">
+                    <i class="far fa-envelope"></i>
+                    <input type="email" name="email" placeholder="Digite seu e-mail" required>
+                </div>
+                <div class="input-container">
+                    <i class="fas fa-fingerprint"></i>
+                    <input type="password" name="password" placeholder="Digite sua senha" required>
+                </div>
+                <div class="buttons-container">
+                    <button type="submit" class="btn btn-default btn-submit">entrar</button>
+                    <a href="/cadastro" class="btn-create">
+                        <button type="button" class="btn btn-outline">criar conta</button>
+                    </a>
+                </div>
+                <a href="/recuperar-senha">Esqueci minha senha</a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
