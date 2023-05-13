@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -9,11 +10,11 @@
 <body>
     <div class "cadastro-container">
         <h1>Cadastro</h1>
-    <form>
+    <form method="POST">{% csrf_token %}
       <label for="nome">Nome:</label>
       <input type="text" id="nome" name="nome" required><br>
 
-      <label for="sobrenome">Sobrenome:</label>
+      {% comment %} <label for="sobrenome">Sobrenome:</label>
       <input type="text" id="sobrenome" name="sobrenome" required><br>
 
       <label for="cpf">CPF:</label>
@@ -64,12 +65,12 @@
       <input type="number" id="ddd" name="ddd" required><br>
 
       <label for="telefone">Telefone:</label>
-      <input type="text" id="telefone" name="telefone" required><br>
+      <input type="text" id="telefone" name="telefone" required><br> {% endcomment %}
 
       <label for="senha">Senha:</label>
       <input type="password" id="senha" name="senha" required><br>
 
-      <button type="submit">Finalizar</button>
+      <input type="submit" value="Finalizar">
     </form>
 
 
