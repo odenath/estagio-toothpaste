@@ -7,7 +7,6 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
 
-
 # Create your views here.
 def home(request):
     if request.user.is_authenticated:
@@ -23,9 +22,9 @@ def cadastro(request):
     if request.user.is_authenticated:
         return redirect('/home/')
     
-    if request.method =='GET':
+    if request.method == 'GET':
         return render(request, 'app/cadastro.html')
-    elif request.method =='POST':
+    elif request.method == 'POST':
         nome = request.POST.get('nome')
         senha = request.POST.get('senha')
         
