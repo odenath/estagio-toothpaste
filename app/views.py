@@ -12,7 +12,7 @@ def home(request):
     if request.user.is_authenticated:
         user = Usuario.objects.filter(username=request.user).first()
         print(user.uf)
-        return render(request, 'app/index.html', {'user':user})
+        return render(request, 'app/index1.html', {'user':user})
 
     return redirect('/login/')
 
@@ -98,3 +98,4 @@ def sair(request):
     logout(request)
     # return HttpResponse('Deslogado')
     return redirect('/login')
+
