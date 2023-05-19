@@ -17,6 +17,14 @@
     border: 1px solid #79747E;
 }
 
+.select {
+    height: 55px;
+}
+
+.estado {
+    margin-bottom: 40px;
+}
+
 .form-control {
     height: 60px;
     border: 1px solid #79747E;

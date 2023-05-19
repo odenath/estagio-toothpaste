@@ -26,95 +26,89 @@
   <section class="vh-100 gradient-custom">
     <div class="container py-5 h-100">
       <div class="row justify-content-center align-items-center h-100">
-        <div class="col-12 col-lg-9 col-xl-7">
+        <div class="col-12 col-lg-9 col-xl-12">
           <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
             <div class="card-body p-4 p-md-5">
               <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Criar Conta</h3>
               <form>
                 {% csrf_token %}
-                <div class="row">
-                  <div class="col-md-6 mb-4">
+                <div class="row justify-content-center mb-6">
+                  <div class="col-md-3">
                     <div class="col-auto">
-                      <label class="sr-only" for="firtName">First Name</label>
+                      <label class="form-label" for="firtName">Primeiro Nome</label>
                       <div class="input-group mb-2">
                         <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name"
                           required>
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-6 mb-4">
+                  <div class="col-md-3 mb-4">
                     <div class="col-auto">
-                      <label class="sr-only" for="lastName">Last Name</label>
+                      <label class="form-label" for="lastName">Sobrenome</label>
                       <div class="input-group mb-2">
                         <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name"
                           required>
                       </div>
                     </div>
                   </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="col-md-3 mb-4">
                     <div class="col-auto">
                       <label class="form-label" for="birthdate">Birthdate: </label>
                       <div class="input-group mb-2">
                         <input type="date" class="form-control" id="birthdate" name="birthdate" required>
                       </div>
                     </div>
-
                   </div>
-                  <div class="col-md-6 mb-4">
-
-                    <h6 class="mb-2 pb-1">Gender: </h6>
-
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="GenderOption" id="femaleGender" value="female"
-                        checked />
-                      <label class="form-check-label" for="femaleGender">Female</label>
-                    </div>
-
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="GenderOption" id="maleGender" value="male" />
-                      <label class="form-check-label" for="maleGender">Male</label>
-                    </div>
-
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="GenderOption" id="otherGender" value="other" />
-                      <label class="form-check-label" for="otherGender">Other</label>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-md-6 mb-4 pb-2">
-                    <div class="col-auto">
-                      <label class="sr-only" for="email">Email</label>
-                      <div class="input-group mb-2">
-                        <div class="input-group-prepend">
-                          <div class="input-group-text"><i class="fa-solid fa-envelope fa-2x"></i></div>
+                  <div class="row justify-content-center">
+                    <div class="col-md-3 mb-4 pb-2">
+                      <div class="col-auto">
+                        <label class="form-label" for="email">Email</label>
+                        <div class="input-group mb-2">
+                          <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fa-solid fa-envelope fa-2x"></i></div>
+                          </div>
+                          <input type="email" class="form-control" id="email" name="email" placeholder="your@mail.com"
+                            required>
                         </div>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="your@mail.com"
-                          required>
                       </div>
                     </div>
-
-                  </div>
-                  <div class="col-md-6 mb-4 pb-2">
-                    <div class="col-auto">
-                      <label class="sr-only" for="cellphone">Cellphone</label>
-                      <div class="input-group mb-2">
-                        <div class="input-group-prepend">
-                          <div class="input-group-text"><i class="fa-solid fa-phone fa-2x"></i></div>
+                    <div class="col-md-3 mb-4 pb-2">
+                      <div class="col-auto">
+                        <label class="form-label" for="cellphone">Telefone</label>
+                        <div class="input-group mb-2">
+                          <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fa-solid fa-phone fa-2x"></i></div>
+                          </div>
+                          <input type="text" class="form-control" id="cellhpone" name="cellphone"
+                            placeholder="(31) 40028922" maxlength="11" required>
                         </div>
-                        <input type="text" class="form-control" id="cellhpone" name="cellphone"
-                          placeholder="(31) 40028922" maxlength="11" required>
+                      </div>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                      <h6 class="mb-2 pb-1">Gender: </h6>
+
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
+                          value="option1" checked />
+                        <label class="form-check-label" for="femaleGender">Female</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
+                          value="option2" />
+                        <label class="form-check-label" for="maleGender">Male</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
+                          value="option3" />
+                        <label class="form-check-label" for="otherGender">Other</label>
                       </div>
                     </div>
                   </div>
                 </div>
-
-                <div class="row">
-                  <div class="col-12">
+            </div>
+            <div class="row">
+              <!--  ANTIGO ESTADO 
+                  <div class="col-12 estado">
                     <select class="select form-control-lg" name="estado" required>
                       <option value="None" disabled selected>Estado</option>
                       <option value="RO">Rôndonia</option>
@@ -146,21 +140,87 @@
                     </select>
                     <label class="form-label select-label">Escolha uma opção</label>
                   </div>
-                </div>
-                <div class="mt-4 pt-2" id="cardLastLine">
-                  <button class="btn btn-primary btn-lg form-btn" type="submit" value="Submit"><span
-                      class="submit-text">Criar Conta</span></button>
-
-                </div>
-              </form>
-              <div class="form-links">
-                <a class="form-link" href="{% url 'app:login' %}">Já tem uma conta? Acesse aqui</a>
-              </div>
-
+                  < !-->
             </div>
+            <div class="row justify-content-center">
+              <div class="col-md-3 mb-4 pb-2">
+                <div class="col-auto">
+                  <label class="form-label" for="email">Número de CRO</label>
+                  <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text"><i class="fa-solid fa-envelope fa-2x"></i></div>
+                    </div>
+                    <input type="text" class="form-control" id="cro" name="cro" placeholder="Seu CRO" required>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 mb-4 pb-2">
+                <label for="uf_cro">UF do CRO</label>
+                <select class="select form-control-lg" name="uf_cro" required>
+                  <option value="None" disabled selected>UF do CRO</option>
+                  <option value="RO">Rôndonia</option>
+                  <option value="AC">Acre</option>
+                  <option value="AM">Amazonas</option>
+                  <option value="RR">Roraima</option>
+                  <option value="PA">Pará</option>
+                  <option value="AP">Amapá</option>
+                  <option value="TO">Tocantins</option>
+                  <option value="MA">Maranhão</option>
+                  <option value="PI">Piauí</option>
+                  <option value="CE">Ceará</option>
+                  <option value="RN">Rio Grande do Norte</option>
+                  <option value="PB">Paraíba</option>
+                  <option value="PE">Pernambuco</option>
+                  <option value="AL">Alagoas</option>
+                  <option value="SE">Sergipe</option>
+                  <option value="BA">Bahia</option>
+                  <option value="MG">Minas Gerais</option>
+                  <option value="ES">Espirito Santo</option>
+                  <option value="RJ">Rio de Janeiro</option>
+                  <option value="SP">São Paulo</option>
+                  <option value="PR">Paraná</option>
+                  <option value="SC">Santa Catarina</option>
+                  <option value="RS">Rio Grande do Sul</option>
+                  <option value="MS">Mato Grosso do Sul</option>
+                  <option value="MT">Mato Grosso</option>
+                  <option value="GO">Goiás</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-4 pb-2">
+                <div class="col-auto">
+                  <label class="sr-only" for="email">CRO</label>
+                  <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text"><i class="fa-solid fa-envelope fa-2x"></i></div>
+                    </div>
+                    <input type="text" class="form-control" id="cro" name="cro" placeholder="Seu CRO" required>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4 pb-2">
+                <div class="col-auto">
+                  <label class="sr-only" for="cpf">CPF</label>
+                  <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text"><i class="fa-solid fa-phone fa-2x"></i></div>
+                    </div>
+                    <input type="text" class="form-control" id="CPF" name="cpf" placeholder="000.000.000-00"
+                      maxlength="11" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </form>
+            <div class="form-links">
+              <a class="form-link" href="{% url 'app:login' %}">Já tem uma conta? Acesse aqui</a>
+            </div>
+
           </div>
         </div>
       </div>
+    </div>
     </div>
   </section>
   </div>
