@@ -25,6 +25,10 @@ def cadastro(request):
     if request.method == 'GET':
         return render(request, 'app/cadastro.html')
     elif request.method == 'POST':
+
+        # Obtem o valor dos campos na requisição
+        firstname = request.POST.get('firstName')
+        lastnaem = request.POST.get('lastName')
         nome = request.POST.get('nome')
         senha = request.POST.get('senha')
         
