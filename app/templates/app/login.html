@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,11 +19,13 @@
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.16/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.16/dist/js/uikit-icons.min.js"></script>
 </head>
+
 <body>
     <div class="login-container">
         <div class="form-container">
             <h1>Login</h1>
-            <form method="POST">{% csrf_token %}
+            <form method="POST">
+                {% csrf_token %}
                 <div class="input-container">
                     <i class="far fa-envelope"></i>
                     <input type="text" name="nome" placeholder="Digite seu nome" required>

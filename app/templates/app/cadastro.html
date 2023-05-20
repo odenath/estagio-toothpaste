@@ -29,10 +29,20 @@
         <div class="col-12 col-lg-9 col-xl-12">
           <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
             <div class="card-body p-4 p-md-5">
-              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Criar Conta</h3>
-              <form>
+              <div class="row text-center">
+                <h3 class="pb-2">Crie uma nova conta</h3>
+                <span class="text-secondary pb-2">Crie uma nova conta para ter acesso ao sistema de gerenciamento. Se já
+                  possui
+                  uma conta você pode
+                  acessá-la <a class="link-primary" href="{%url 'app:login' %}">aqui</a></span>
+              </div>
+
+              <form method="post">
                 {% csrf_token %}
-                <div class="row justify-content-center mb-6">
+                <div class="row">
+                  <h4 class="mb-2 py-4 border-bottom">Dados Pessoais</h4>
+                </div>
+                <div class="row justify-content-center mb-6 pt-4">
                   <div class="col-md-3">
                     <div class="col-auto">
                       <label class="form-label" for="firtName">Primeiro Nome</label>
@@ -42,6 +52,7 @@
                       </div>
                     </div>
                   </div>
+
                   <div class="col-md-3 mb-4">
                     <div class="col-auto">
                       <label class="form-label" for="lastName">Sobrenome</label>
@@ -85,32 +96,43 @@
                       </div>
                     </div>
                     <div class="col-md-3 mb-4">
-                      <h6 class="mb-2 pb-1">Gender: </h6>
-
+                      <h6 class="mb-2 pb-4">Gender: </h6>
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
-                          value="option1" checked />
+                        <input class="form-check-input" type="radio" name="gender" id="femaleGender" value="F"
+                          checked />
                         <label class="form-check-label" for="femaleGender">Female</label>
                       </div>
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
-                          value="option2" />
+                        <input class="form-check-input" type="radio" name="gender" id="maleGender" value="M" />
                         <label class="form-check-label" for="maleGender">Male</label>
                       </div>
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
-                          value="option3" />
+                        <input class="form-check-input" type="radio" name="gender" id="otherGender" value="O" />
                         <label class="form-check-label" for="otherGender">Other</label>
                       </div>
                     </div>
                   </div>
                 </div>
-            </div>
-            <div class="row">
-              <!--  ANTIGO ESTADO 
-                  <div class="col-12 estado">
-                    <select class="select form-control-lg" name="estado" required>
-                      <option value="None" disabled selected>Estado</option>
+                <div class="row">
+                  <h4 class="mb-2 py-4 border-bottom">Dados Profissionais</h4>
+                </div>
+                <div class="row justify-content-center pt-4">
+                  <div class="col-md-3 mb-4 pb-2">
+                    <div class="col-auto">
+                      <label class="form-label" for="numero_cro">Número de CRO</label>
+                      <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text"><i class="fa-solid fa-envelope fa-2x"></i></div>
+                        </div>
+                        <input type="text" class="form-control" id="cro" name="numero_cro" placeholder="Seu CRO"
+                          required>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 mb-4 pb-2">
+                    <label for="uf_cro" class="pb-2">UF do CRO</label>
+                    <select class="select form-select" name="uf_cro" required>
+                      <option value="None" disabled selected>UF do CRO</option>
                       <option value="RO">Rôndonia</option>
                       <option value="AC">Acre</option>
                       <option value="AM">Amazonas</option>
@@ -138,88 +160,195 @@
                       <option value="MT">Mato Grosso</option>
                       <option value="GO">Goiás</option>
                     </select>
-                    <label class="form-label select-label">Escolha uma opção</label>
                   </div>
-                  < !-->
+                  <div class="col-md-3 mb-4 pb-2">
+                    <div class="col-auto">
+                      <label class="form-label" for="numero_cnpj">CNPJ</label>
+                      <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text"><i class="fa-solid fa-envelope fa-2x"></i></div>
+                        </div>
+                        <input type="text" class="form-control" id="cnpj" name="numero_cnpj"
+                          placeholder="Número de cnpj" required>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row justify-content-center">
+                    <div class="col-md-3 mb-4 pb-2">
+                      <div class="col-auto">
+                        <label class="form-label" for="nome_legal">Nome Legal</label>
+                        <div class="input-group mb-2">
+                          <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fa-solid fa-envelope fa-2x"></i></div>
+                          </div>
+                          <input type="text" class="form-control" id="nomeLegal" name="nome_legal"
+                            placeholder="Nome Legal" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3 mb-4 pb-2">
+                      <div class="col-auto">
+                        <label class="form-label" for="cpf">CPF</label>
+                        <div class="input-group mb-2">
+                          <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fa-solid fa-phone fa-2x"></i></div>
+                          </div>
+                          <input type="text" class="form-control" id="CPF" name="cpf" placeholder="000.000.000-00"
+                            maxlength="11" required>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <h4 class="mb-2 py-4 border-bottom">Residência</h4>
+                </div>
+                <div class="row justify-content-center pt-4">
+                  <div class="col-md-3 mb-4 pb-2">
+                    <div class="col-auto">
+                      <label class="form-label" for="cep">CEP</label>
+                      <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text"><i class="fa-solid fa-phone fa-2x"></i></div>
+                        </div>
+                        <input type="text" class="form-control" id="Cep" name="cep" placeholder="00000-00" maxlength="8"
+                          required>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 mb-4 pb-2">
+                    <div class="col-auto">
+                      <label class="form-label" for="streetAvenue">Rua</label>
+                      <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text"><i class="fa-solid fa-phone fa-2x"></i></div>
+                        </div>
+                        <input type="text" class="form-control" id="streetAvenue" name="street_avenue"
+                          placeholder="Rua/Avenida" maxlength="40" required>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 mb-4 pb-2">
+                    <div class="col-auto">
+                      <label class="form-label" for="house_number">Número da Residência</label>
+                      <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text"><i class="fa-solid fa-phone fa-2x"></i></div>
+                        </div>
+                        <input type="text" class="form-control" id="houseNumber" name="house_number"
+                          placeholder="Número" maxlength="5" required>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row justify-content-center">
+                  <div class="col-md-3 mb-4 pb-2">
+                    <label for="uf_cro" class="pb-2">Estado</label>
+                    <select class="select form-select" name="uf_residencia" required>
+                      <option value="None" disabled selected>Selecione uma UF</option>
+                      <option value="RO">Rôndonia</option>
+                      <option value="AC">Acre</option>
+                      <option value="AM">Amazonas</option>
+                      <option value="RR">Roraima</option>
+                      <option value="PA">Pará</option>
+                      <option value="AP">Amapá</option>
+                      <option value="TO">Tocantins</option>
+                      <option value="MA">Maranhão</option>
+                      <option value="PI">Piauí</option>
+                      <option value="CE">Ceará</option>
+                      <option value="RN">Rio Grande do Norte</option>
+                      <option value="PB">Paraíba</option>
+                      <option value="PE">Pernambuco</option>
+                      <option value="AL">Alagoas</option>
+                      <option value="SE">Sergipe</option>
+                      <option value="BA">Bahia</option>
+                      <option value="MG">Minas Gerais</option>
+                      <option value="ES">Espirito Santo</option>
+                      <option value="RJ">Rio de Janeiro</option>
+                      <option value="SP">São Paulo</option>
+                      <option value="PR">Paraná</option>
+                      <option value="SC">Santa Catarina</option>
+                      <option value="RS">Rio Grande do Sul</option>
+                      <option value="MS">Mato Grosso do Sul</option>
+                      <option value="MT">Mato Grosso</option>
+                      <option value="GO">Goiás</option>
+                    </select>
+                  </div>
+                  <div class="col-md-3 mb-3 ">
+                    <div class="col-auto">
+                      <label class="form-label" for="city">Cidade</label>
+                      <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text"><i class="fa-solid fa-phone fa-2x"></i></div>
+                        </div>
+                        <input type="text" class="form-control" id="city" name="city"
+                          placeholder="Cidade" maxlength="40" required>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-3 mb-3 pb-2">
+                    <div class="col-auto">
+                      <label class="form-label" for="additional_info">Informações Adicionais</label>
+                      <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text"><i class="fa-solid fa-phone fa-2x"></i></div>
+                        </div>
+                        <input type="text" class="form-control" id="additionalInfo" name="additional_info"
+                          placeholder="Ponto de referência, locais próximos, etc..." maxlength="50" required>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <h4 class="mb-2 py-4 border-bottom">Informações de Acesso</h4>
+                </div>
+                <div class="row justify-content-center py-4">
+                  <div class="col-md-4 mb-4 pb-2">
+                    <div class="col-auto">
+                      <label class="form-label" for="username">Username</label>
+                      <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">@</i></div>
+                        </div>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="username"
+                          maxlength="30" required>
+                      </div>
+                      <small id="usernameHelp" class="form-text text-muted">
+                        Você irá utilizar este username para acessar sua conta.
+                      </small>
+                    </div>
+                  </div>
+                  <div class="col-md-4 mb-4 pb-2">
+                    <div class="col-auto">
+                      <label class="form-label" for="password">Senha</label>
+                      <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">#</i></div>
+                        </div>
+                        <input type="password" class="form-control" id="password" name="password"
+                          placeholder="Senha de acesso" maxlength="30" required>
+                      </div>
+                      <small id="usernameHelp" class="form-text text-muted">
+                        Você irá utilizar esta senha para acessar sua conta.
+                      </small>
+                    </div>
+                  </div>
+                </div>
             </div>
             <div class="row justify-content-center">
-              <div class="col-md-3 mb-4 pb-2">
-                <div class="col-auto">
-                  <label class="form-label" for="email">Número de CRO</label>
-                  <div class="input-group mb-2">
-                    <div class="input-group-prepend">
-                      <div class="input-group-text"><i class="fa-solid fa-envelope fa-2x"></i></div>
-                    </div>
-                    <input type="text" class="form-control" id="cro" name="cro" placeholder="Seu CRO" required>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3 mb-4 pb-2">
-                <label for="uf_cro">UF do CRO</label>
-                <select class="select form-control-lg" name="uf_cro" required>
-                  <option value="None" disabled selected>UF do CRO</option>
-                  <option value="RO">Rôndonia</option>
-                  <option value="AC">Acre</option>
-                  <option value="AM">Amazonas</option>
-                  <option value="RR">Roraima</option>
-                  <option value="PA">Pará</option>
-                  <option value="AP">Amapá</option>
-                  <option value="TO">Tocantins</option>
-                  <option value="MA">Maranhão</option>
-                  <option value="PI">Piauí</option>
-                  <option value="CE">Ceará</option>
-                  <option value="RN">Rio Grande do Norte</option>
-                  <option value="PB">Paraíba</option>
-                  <option value="PE">Pernambuco</option>
-                  <option value="AL">Alagoas</option>
-                  <option value="SE">Sergipe</option>
-                  <option value="BA">Bahia</option>
-                  <option value="MG">Minas Gerais</option>
-                  <option value="ES">Espirito Santo</option>
-                  <option value="RJ">Rio de Janeiro</option>
-                  <option value="SP">São Paulo</option>
-                  <option value="PR">Paraná</option>
-                  <option value="SC">Santa Catarina</option>
-                  <option value="RS">Rio Grande do Sul</option>
-                  <option value="MS">Mato Grosso do Sul</option>
-                  <option value="MT">Mato Grosso</option>
-                  <option value="GO">Goiás</option>
-                </select>
-              </div>
+              <button type="submit" class="form-btn">Finalizar Cadastro</button>
             </div>
-            <div class="row">
-              <div class="col-md-6 mb-4 pb-2">
-                <div class="col-auto">
-                  <label class="sr-only" for="email">CRO</label>
-                  <div class="input-group mb-2">
-                    <div class="input-group-prepend">
-                      <div class="input-group-text"><i class="fa-solid fa-envelope fa-2x"></i></div>
-                    </div>
-                    <input type="text" class="form-control" id="cro" name="cro" placeholder="Seu CRO" required>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 mb-4 pb-2">
-                <div class="col-auto">
-                  <label class="sr-only" for="cpf">CPF</label>
-                  <div class="input-group mb-2">
-                    <div class="input-group-prepend">
-                      <div class="input-group-text"><i class="fa-solid fa-phone fa-2x"></i></div>
-                    </div>
-                    <input type="text" class="form-control" id="CPF" name="cpf" placeholder="000.000.000-00"
-                      maxlength="11" required>
-                  </div>
-                </div>
-              </div>
-            </div>
-            </form>
             <div class="form-links">
               <a class="form-link" href="{% url 'app:login' %}">Já tem uma conta? Acesse aqui</a>
             </div>
-
           </div>
         </div>
+        </form>
       </div>
+    </div>
+    </div>
+    </div>
     </div>
     </div>
   </section>

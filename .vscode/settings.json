@@ -1,0 +1,5 @@
+{
+    "python.linting.pycodestyleEnabled": false,
+    "python.linting.prospectorEnabled": true,
+    "python.linting.enabled": true
+}
