@@ -6,13 +6,13 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
-from .models import Address, Dentist, Person, Phone
+# from .models import Address, Dentist, Person, Phone
 
 
 # Create your views here.
 def home(request):
     if request.user.is_authenticated:
-        user = Dentist.objects.filter(username=request.user).first()
+        # user = Dentist.objects.filter(username=request.user).first()
         #print(user.uf)
         return render(request, 'app/index1.html', {'user':user})
 
@@ -68,28 +68,28 @@ def cadastro(request):
 
         dentist.set_password(password)
 
-        # Cria o endereço
-        address = Address(
-            user=dentist,
-            cep=cep,
-            street_avenue=street_avenue,
-            number=house_number,
-            city=city,
-            uf=uf_residencia,
-            additional_information=additional_information
-        )
-        ddd, number = cellphone[:2], cellphone[2:]
-        # Cria o telefone
-        phone = Phone(
-            number=cellphone,
-            ddd=ddd,
-            user=dentist
-        )
+        # # Cria o endereço
+        # address = Address(
+        #     user=dentist,
+        #     cep=cep,
+        #     street_avenue=street_avenue,
+        #     number=house_number,
+        #     city=city,
+        #     uf=uf_residencia,
+        #     additional_information=additional_information
+        # )
+        # ddd, number = cellphone[:2], cellphone[2:]
+        # # Cria o telefone
+        # phone = Phone(
+        #     number=cellphone,
+        #     ddd=ddd,
+        #     user=dentist
+        # )
 
-        # Cria o dentista
-        dentist.save()
-        address.save()
-        phone.save()
+        # # Cria o dentista
+        # dentist.save()
+        # address.save()
+        # phone.save()
 
 
         return redirect('/login/')
