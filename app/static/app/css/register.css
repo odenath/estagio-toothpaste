@@ -1,0 +1,78 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+}
+
+.card-registration .select-arrow {
+    top: 13px;
+}
+
+.card {
+    border: 1px solid #79747E;
+}
+
+.select {
+    height: 55px;
+}
+
+.estado {
+    margin-bottom: 40px;
+}
+
+.form-control {
+    height: 60px;
+    border: 1px solid #79747E;
+    border-radius: 4px;
+    color: black;
+}
+
+.card .fa-solid {
+    font-size: 2.7em;
+}
+
+.input-group-text {
+    height: 60px;
+}
+
+.form-btn {
+    background-color: #6750A4;
+    border: 1px solid #6750A4;
+    color: #fff;
+    height: 50px;
+    width: 196px;
+    font-weight: 500;
+    border-radius: 100px;
+    transition: all 0.3s ease-in-out;
+}
+
+.form-btn>span {
+    margin: 0 auto;
+
+
+}
+
+.form-btn:hover {
+    background-color: #fff;
+    color: #6750A4;
+    border-color: #6750A4;
+    transition: all 0.3s ease-in-out;
+}
+
+#cardLastLine {
+    display: flex;
+    justify-content: center;
+}
+
+.form-links {
+    margin-top: 50px;
+}
+
+.form-link {
+    text-decoration: none;
+}
