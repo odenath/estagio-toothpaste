@@ -84,20 +84,19 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
         "NAME": "db_toothpaste",
-        "USER": "toothpaste",
-        "PASSWORD": "123456",
+        "USER": "root",
+        "PASSWORD": "a1b2c3d4",
         "HOST": "localhost",
         "PORT": "3306",
     }
 
+}
 #     "default": {
 #         "ENGINE": "django.db.backends.mysql",
 #         "OPTIONS": {
 #             "read_default_file": "project/my.cnf",
 # }
 #     }
-}   
-
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 

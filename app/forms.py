@@ -90,7 +90,7 @@ class DentistForm(forms.Form):
     cnpj = forms.CharField(max_length=9, label="CNPJ", required=False)
     legal_name = forms.CharField(max_length=40, label="Legal Name", required=False)
 
-class 
+
 
 
 

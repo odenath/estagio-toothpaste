@@ -39,7 +39,6 @@ def cadastro(request):
 
         if person_form.is_valid() and address_form.is_valid() and costumer_form.is_valid() and phone_form.is_valid():
 
-
             person = Person(**person_form.clean())
             address = Address(**address_form.clean(), tb_person=person)
             costumer = Costumer(**costumer_form.clean(), tb_person=person)
@@ -48,8 +47,6 @@ def cadastro(request):
             number = phone_form.cleaned_data['phone'][2:]
 
             phone = Phone(ddd=ddd, number=number, tb_person=person)
-
-
         
             person.save()
             address.save()
@@ -65,15 +62,14 @@ def cadastro(request):
 
             return redirect('/login/')
 
-
         return redirect('/login/')
-    return False
+    return True
 
 # READ
 def logar(request):
     if request.user.is_authenticated:
         return redirect('/home/')
-    
+
     if request.method =='GET':
         return render(request, 'app/login.html')
     elif request.method =='POST':
