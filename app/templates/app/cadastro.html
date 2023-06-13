@@ -45,19 +45,19 @@
                 <div class="row justify-content-center mb-6 pt-4">
                   <div class="col-md-3">
                     <div class="col-auto">
-                      <label class="form-label" for="firtName">Primeiro Nome</label>
+                      <label class="form-label" for="first_name">Primeiro Nome</label>
                       <div class="input-group mb-2">
-                        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name"
-                          required>
+                        <input type="text" class="form-control" id="firstName" name="first_name"
+                          placeholder="First Name" required>
                       </div>
                     </div>
                   </div>
 
                   <div class="col-md-3 mb-4">
                     <div class="col-auto">
-                      <label class="form-label" for="lastName">Sobrenome</label>
+                      <label class="form-label" for="last_name">Sobrenome</label>
                       <div class="input-group mb-2">
-                        <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name"
+                        <input type="text" class="form-control" id="lastName" name="last_name" placeholder="Last Name"
                           required>
                       </div>
                     </div>
@@ -66,7 +66,7 @@
                     <div class="col-auto">
                       <label class="form-label" for="birthdate">Birthdate: </label>
                       <div class="input-group mb-2">
-                        <input type="date" class="form-control" id="birthdate" name="birthdate" required>
+                        <input type="date" class="form-control" id="birthdate" name="birth_date" required>
                       </div>
                     </div>
                   </div>
@@ -85,12 +85,12 @@
                     </div>
                     <div class="col-md-3 mb-4 pb-2">
                       <div class="col-auto">
-                        <label class="form-label" for="cellphone">Telefone</label>
+                        <label class="form-label" for="phone">Telefone</label>
                         <div class="input-group mb-2">
                           <div class="input-group-prepend">
                             <div class="input-group-text"><i class="fa-solid fa-phone fa-2x"></i></div>
                           </div>
-                          <input type="text" class="form-control" id="cellhpone" name="cellphone"
+                          <input type="text" class="form-control" id="cellhpone" name="phone"
                             placeholder="(31) 40028922" maxlength="11" required>
                         </div>
                       </div>
@@ -119,13 +119,12 @@
                 <div class="row justify-content-center pt-4">
                   <div class="col-md-3 mb-4 pb-2">
                     <div class="col-auto">
-                      <label class="form-label" for="numero_cro">Número de CRO</label>
+                      <label class="form-label" for="cro">Número de CRO</label>
                       <div class="input-group mb-2">
                         <div class="input-group-prepend">
                           <div class="input-group-text"><i class="fa-solid fa-envelope fa-2x"></i></div>
                         </div>
-                        <input type="text" class="form-control" id="cro" name="numero_cro" placeholder="Seu CRO"
-                          required>
+                        <input type="text" class="form-control" id="cro" name="cro" placeholder="Seu CRO" required>
                       </div>
                     </div>
                   </div>
@@ -230,21 +229,21 @@
                   </div>
                   <div class="col-md-3 mb-4 pb-2">
                     <div class="col-auto">
-                      <label class="form-label" for="house_number">Número da Residência</label>
+                      <label class="form-label" for="number">Número da Residência</label>
                       <div class="input-group mb-2">
                         <div class="input-group-prepend">
                           <div class="input-group-text"><i class="fa-solid fa-phone fa-2x"></i></div>
                         </div>
-                        <input type="text" class="form-control" id="houseNumber" name="house_number"
-                          placeholder="Número" maxlength="5" required>
+                        <input type="text" class="form-control" id="houseNumber" name="number" placeholder="Número"
+                          maxlength="5" required>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="row justify-content-center">
                   <div class="col-md-3 mb-4 pb-2">
-                    <label for="uf_cro" class="pb-2">Estado</label>
-                    <select class="select form-select" name="uf_residencia" required>
+                    <label for="uf" class="pb-2">Estado</label>
+                    <select class="select form-select" name="uf" required>
                       <option value="None" disabled selected>Selecione uma UF</option>
                       <option value="RO">Rôndonia</option>
                       <option value="AC">Acre</option>
@@ -281,20 +280,20 @@
                         <div class="input-group-prepend">
                           <div class="input-group-text"><i class="fa-solid fa-phone fa-2x"></i></div>
                         </div>
-                        <input type="text" class="form-control" id="city" name="city"
-                          placeholder="Cidade" maxlength="40" required>
+                        <input type="text" class="form-control" id="city" name="city" placeholder="Cidade"
+                          maxlength="40" required>
                       </div>
                     </div>
                   </div>
 
                   <div class="col-md-3 mb-3 pb-2">
                     <div class="col-auto">
-                      <label class="form-label" for="additional_info">Informações Adicionais</label>
+                      <label class="form-label" for="additional_information">Informações Adicionais</label>
                       <div class="input-group mb-2">
                         <div class="input-group-prepend">
                           <div class="input-group-text"><i class="fa-solid fa-phone fa-2x"></i></div>
                         </div>
-                        <input type="text" class="form-control" id="additionalInfo" name="additional_info"
+                        <input type="text" class="form-control" id="additionalInfo" name="additional_information"
                           placeholder="Ponto de referência, locais próximos, etc..." maxlength="50" required>
                       </div>
                     </div>
@@ -306,12 +305,12 @@
                 <div class="row justify-content-center py-4">
                   <div class="col-md-4 mb-4 pb-2">
                     <div class="col-auto">
-                      <label class="form-label" for="username">Username</label>
+                      <label class="form-label" for="login">Username</label>
                       <div class="input-group mb-2">
                         <div class="input-group-prepend">
                           <div class="input-group-text">@</i></div>
                         </div>
-                        <input type="text" class="form-control" id="username" name="username" placeholder="username"
+                        <input type="text" class="form-control" id="username" name="login" placeholder="username"
                           maxlength="30" required>
                       </div>
                       <small id="usernameHelp" class="form-text text-muted">
@@ -336,6 +335,13 @@
                   </div>
                 </div>
             </div>
+            {% if errors %}
+            {% for error in errors %}
+            <div class="alert alert-danger" role="alert">
+              {{ error }}
+            </div>
+            {% endfor %}
+            {% endif %}
             <div class="row justify-content-center">
               <button type="submit" class="form-btn">Finalizar Cadastro</button>
             </div>

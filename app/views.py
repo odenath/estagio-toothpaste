@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
-from app.forms import AddressForm, CostumerForm, PersonForm, PhoneForm, DentistForm
+from app.forms import AddressForm, CostumerForm, PersonForm, PhoneForm, DentistForm, UserForm
 from app.models import Address, Costumer, Dentist, Person, Phone
 from app_customauth.models import CustomUser as User
 
@@ -25,6 +25,7 @@ def home(request):
 
 def cadastro(request):
 
+    errors = []
     if request.user.is_authenticated:
         return redirect('/home/')    
 
@@ -34,40 +35,71 @@ def cadastro(request):
         errors = []
         person_form = PersonForm(request.POST) 
         address_form = AddressForm(request.POST)
-        costumer_form = CostumerForm(request.POST)
         phone_form = PhoneForm(request.POST)
+        user_form = UserForm(request.POST)
+        dentist_form = DentistForm(request.POST)
+        #import pdb; pdb.set_trace()
+        if person_form.is_valid() and address_form.is_valid() and phone_form.is_valid() and user_form.is_valid() and dentist_form.is_valid():
 
-        if person_form.is_valid() and address_form.is_valid() and costumer_form.is_valid() and phone_form.is_valid():
+            # checa se existe algum usuário com o mesmo login
+            if User.objects.filter(login=user_form.cleaned_data['login']).exists():
+                errors.append('Usuário já cadastrado')
+                return render(request, 'app/cadastro.html', {'errors':errors})
 
+            # checa se existe algum usuário com o mesmo cpf
+            if Person.objects.filter(cpf=person_form.cleaned_data['cpf']).exists():
+                errors.append('CPF já cadastrado')
+                return render(request, 'app/cadastro.html', {'errors':errors})
+            
+            # checa se existe algum usuário com o mesmo email
+            if Person.objects.filter(email=person_form.cleaned_data['email']).exists():
 
+                errors.append('Email já cadastrado')
+                return render(request, 'app/cadastro.html', {'errors':errors})
+            
+            # checa se exsite alguum dentista com o mesmo cro
+            # como o CRO não é obrigatório, é necessário checar se ele existe
+            try:
+                if Dentist.objects.filter(cro=dentist_form.cleaned_data['cro']).exists():
+                    errors.append('CRO já cadastrado')
+                    return render(request, 'app/cadastro.html', {'errors':errors})
+            except KeyError:
+                dentist_form.cleaned_data['cro'] = None
+
+            if Person.objects.filter(cpf=person_form.cleaned_data['cpf']).exists():
+                errors.append('CPF já cadastrado')
+                return render(request, 'app/cadastro.html', {'errors':errors})
+
+            
             person = Person(**person_form.clean())
             address = Address(**address_form.clean(), tb_person=person)
-            costumer = Costumer(**costumer_form.clean(), tb_person=person)
-            
+            dentist = Dentist(**dentist_form.clean(), tb_person=person)
+            user = User(**user_form.clean(), tb_dentist=dentist)
+
+            user.set_password(user_form.cleaned_data['password'])
+
             ddd = phone_form.cleaned_data['phone'][:2]
             number = phone_form.cleaned_data['phone'][2:]
 
             phone = Phone(ddd=ddd, number=number, tb_person=person)
 
-
-        
             person.save()
             address.save()
-            costumer.save()
             phone.save()
-
-            user = User.objects.create_user(
-                tb_dentist=costumer,
-                login=costumer_form.cleaned_data['login'],
-                password=costumer_form.cleaned_data['password']
-            )
+            dentist.save()
             user.save()
 
             return redirect('/login/')
+        else:
 
+            errors.append(person_form.errors.values())
+            errors.append(address_form.errors.values())
+            errors.append(phone_form.errors.values())
+            errors.append(user_form.errors.values())
+            errors.append(dentist_form.errors.values())
 
-        return redirect('/login/')
-    return False
+            errors = [item for sublist in errors for item in sublist]
+    return render(request, 'app/cadastro.html', {'errors': errors})
 
 # READ
 def logar(request):
@@ -127,9 +159,10 @@ def sair(request):
 
 @login_required
 def create_costumer(request):
-    
+
+    errors = []
     if request.method == "POST":
-        errors = []
+        
         person_form = PersonForm(request.POST) 
         address_form = AddressForm(request.POST)
         costumer_form = CostumerForm(request.POST)
@@ -137,8 +170,6 @@ def create_costumer(request):
 
         if (person_form.is_valid() and address_form.is_valid() and costumer_form.is_valid() and phone_form.is_valid()):
             
-            # check if person already exists
-            #import pdb; pdb.set_trace()
             p = Person.objects.filter(cpf=person_form.cleaned_data['cpf']).first()
             if p:
                 return render(request, 'app/cadastro-cliente.html', {'errors': ['CPF já cadastrado']})
@@ -150,23 +181,22 @@ def create_costumer(request):
             person = Person(**person_form.clean())
             address = Address(**address_form.clean(), tb_person=person)
             costumer = Costumer(**costumer_form.clean(), tb_person=person)
+            costumer.status = True
             
             ddd = phone_form.cleaned_data['phone'][:2]
             number = phone_form.cleaned_data['phone'][2:]
 
             phone = Phone(ddd=ddd, number=number, tb_person=person)
 
-
             person.save()
             address.save()
             costumer.save()
             phone.save()
 
-            return redirect('/vizualizar-costumer/')
+            return redirect('/vizualize-costumer/')
 
         # Caso o formulário não seja válido, vamos retornar o problema
         else:
-            
             errors.append(person_form.errors.values())
             errors.append(address_form.errors.values())
             errors.append(costumer_form.errors.values())

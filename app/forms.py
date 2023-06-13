@@ -30,14 +30,7 @@ class PersonForm(forms.Form):
         if len(last_name) < 3:
             raise ValidationError("O Sobre Nome deve ter pelo menos 3 caracteres")
         return last_name
-
-    def clean_birth_date(self):
-        birth_date = self.cleaned_data['birth_date']
-        # Convert 
-        # if birth_date > datetime.today():
-        #     raise ValidationError("Birth Date must be in the past")
-        return birth_date
-
+    
     def clean_cpf(self):
         # TODO: Validate CPF
         cpf = self.cleaned_data['cpf']
@@ -46,7 +39,14 @@ class PersonForm(forms.Form):
             raise ValidationError("O CPF precisa ter 11 digitos e apenas numeros")
 
         return cpf
-
+    
+    def clean_birth_date(self):
+        birth_date = self.cleaned_data['birth_date']
+        # Convert to date
+        if birth_date > datetime.today().date():
+            raise ValidationError("Birth Date must be in the past")
+        return birth_date
+    
 class AddressForm(forms.Form):
 
     cep = forms.CharField(max_length=8, label="CEP")
@@ -82,6 +82,11 @@ class CostumerForm(forms.Form):
     # O campo status é opcional
     status = forms.BooleanField(required=False, label="Active")
 
+    def clean_status(self):
+        status = self.cleaned_data['status']
+        return status
+
+    
 
 class DentistForm(forms.Form):
     
@@ -90,8 +95,27 @@ class DentistForm(forms.Form):
     cnpj = forms.CharField(max_length=9, label="CNPJ", required=False)
     legal_name = forms.CharField(max_length=40, label="Legal Name", required=False)
 
-class 
+class UserForm(forms.Form):
+    
+    password = forms.CharField(max_length=40, label="Password")
+    login = forms.CharField(max_length=40, label="Login")
 
+    def clean_passowrd(self):
+
+        password = self.cleaned_data['password']
+        if len(password) < 4:
+            raise ValidationError("A senha deve ter pelo menos 4 caracteres")
+
+        return password
+    
+    def clean_login(self):
+
+        login = self.cleaned_data['login']
+        if len(login) < 4:
+            raise ValidationError("O login deve ter pelo menos 4 caracteres")
+
+        return login
+    
 
 
 #https://pypi.org/project/django-cpf/
