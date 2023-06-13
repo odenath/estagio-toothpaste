@@ -11,8 +11,9 @@ class CustomUserManager(BaseUserManager):
 
     def create_user(self, tb_dentist: Dentist, login=None, password=None ) -> Any:
     
+        dentist = Dentist.objects.get(id=tb_dentist.id)
         user = self.model(
-            tb_Dentist=tb_dentist,
+            tb_Dentist=dentist,
             login=login,
 
         )

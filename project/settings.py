@@ -81,11 +81,12 @@ DATABASES = {
     #     "ENGINE": "django.db.backends.sqlite3",
     #     "NAME": BASE_DIR / "db.sqlite3",
     # }
+    #meu banco de dados
     "default": {
         "ENGINE": "django.db.backends.mysql",
         "NAME": "db_toothpaste",
-        "USER": "toothpaste",
-        "PASSWORD": "123456",
+        "USER": "root",
+        "PASSWORD": "a1b2c3d4",
         "HOST": "localhost",
         "PORT": "3306",
     }

@@ -123,13 +123,13 @@
                                                 <label for="status" class="form-label">Status</label>
                                                 <select class="select form-select" name="status" required>
                                                     {% if costumer.status%}
-                                                    <option value="1">
+                                                    <option value="true">
                                                         Ativo</option>
                                                     {% else %}
-                                                    <option value="0" disabled selected>Inativo</option>
+                                                    <option value="false" disabled selected>Inativo</option>
                                                     {% endif %}
-                                                    <option value="1">Ativo</option>
-                                                    <option value="2">Inativo</option>
+                                                    <option value="true">Ativo</option>
+                                                    <option value="false">Inativo</option>
                                                 </select>
                                             </div>
                                         </div>
