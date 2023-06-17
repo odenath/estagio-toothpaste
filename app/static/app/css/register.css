@@ -12,6 +12,9 @@
 .card-registration .select-arrow {
     top: 13px;
 }
+.titulo {
+    text-align: center;
+}
 
 .card {
     border: 1px solid #79747E;

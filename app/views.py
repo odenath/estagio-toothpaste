@@ -151,6 +151,10 @@ def delete_user(request):
     return redirect('/login/')
 
 
+def recovery_password(request):
+
+    return render(request, 'app/recovery-password.html')
+
 @login_required
 def sair(request):
     logout(request)

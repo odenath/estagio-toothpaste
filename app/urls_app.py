@@ -16,4 +16,5 @@ urlpatterns = [
     path("vizualize-costumer/", views.list_costumer, name="vizualize_costumer"),
     path('delete-cliente/<int:id>/', views.delete_costumer, name='delete_costumer'),
     path('update-cliente/<int:id>/', views.update_costumer, name='update_costumer'),
+    path("recovery-password/", views.recovery_password, name='recovery_password'),
 ]

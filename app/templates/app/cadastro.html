@@ -20,6 +20,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="{% static 'app/css/register.css' %}">
+  
 </head>
 
 <body>
@@ -37,10 +38,10 @@
                   acessá-la <a class="link-primary" href="{%url 'app:login' %}">aqui</a></span>
               </div>
 
-              <form method="post">
+              <form method="post"id='form'>
                 {% csrf_token %}
                 <div class="row">
-                  <h4 class="mb-2 py-4 border-bottom">Dados Pessoais</h4>
+                  <h4 class="mb-2 py-4 border-bottom row justify-content-center" class="titulo">Dados Pessoais</h4>
                 </div>
                 <div class="row justify-content-center mb-6 pt-4">
                   <div class="col-md-3">
@@ -48,7 +49,7 @@
                       <label class="form-label" for="first_name">Primeiro Nome</label>
                       <div class="input-group mb-2">
                         <input type="text" class="form-control" id="firstName" name="first_name"
-                          placeholder="First Name" required>
+                          placeholder="Primeiro Nome" required>
                       </div>
                     </div>
                   </div>
@@ -57,14 +58,14 @@
                     <div class="col-auto">
                       <label class="form-label" for="last_name">Sobrenome</label>
                       <div class="input-group mb-2">
-                        <input type="text" class="form-control" id="lastName" name="last_name" placeholder="Last Name"
+                        <input type="text" class="form-control" id="lastName" name="last_name" placeholder="Sobrenome"
                           required>
                       </div>
                     </div>
                   </div>
                   <div class="col-md-3 mb-4">
                     <div class="col-auto">
-                      <label class="form-label" for="birthdate">Birthdate: </label>
+                      <label class="form-label" for="birthdate">Data de Nascimento </label>
                       <div class="input-group mb-2">
                         <input type="date" class="form-control" id="birthdate" name="birth_date" required>
                       </div>
@@ -75,10 +76,7 @@
                       <div class="col-auto">
                         <label class="form-label" for="email">Email</label>
                         <div class="input-group mb-2">
-                          <div class="input-group-prepend">
-                            <div class="input-group-text"><i class="fa-solid fa-envelope fa-2x"></i></div>
-                          </div>
-                          <input type="email" class="form-control" id="email" name="email" placeholder="your@mail.com"
+                          <input type="email" class="form-control" id="email" name="email" placeholder="seu.email@gmail.com"
                             required>
                         </div>
                       </div>
@@ -87,47 +85,44 @@
                       <div class="col-auto">
                         <label class="form-label" for="phone">Telefone</label>
                         <div class="input-group mb-2">
-                          <div class="input-group-prepend">
-                            <div class="input-group-text"><i class="fa-solid fa-phone fa-2x"></i></div>
-                          </div>
                           <input type="text" class="form-control" id="cellhpone" name="phone"
-                            placeholder="(31) 40028922" maxlength="11" required>
+                            placeholder="(31) 91234-8922" maxlength="11" required>
                         </div>
                       </div>
                     </div>
                     <div class="col-md-3 mb-4">
-                      <h6 class="mb-2 pb-4">Gender: </h6>
+                      <h6 class="mb-2 pb-4">Gênero </h6>
                       <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="gender" id="femaleGender" value="F"
                           checked />
-                        <label class="form-check-label" for="femaleGender">Female</label>
+                        <label class="form-check-label" for="femaleGender">Feminino</label>
                       </div>
                       <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="gender" id="maleGender" value="M" />
-                        <label class="form-check-label" for="maleGender">Male</label>
+                        <label class="form-check-label" for="maleGender">Masculino</label>
                       </div>
                       <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="gender" id="otherGender" value="O" />
-                        <label class="form-check-label" for="otherGender">Other</label>
+                        <label class="form-check-label" for="otherGender">Outro</label>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="row">
-                  <h4 class="mb-2 py-4 border-bottom">Dados Profissionais</h4>
+                  <h4 class="mb-2 py-4 border-bottom row justify-content-center">Dados Profissionais</h4>
+
                 </div>
-                <div class="row justify-content-center pt-4">
-                  <div class="col-md-3 mb-4 pb-2">
+
+                <div class="row justify-content-center mb-6 pt-4">
+                  <div class="col-md-3 mb-4">
                     <div class="col-auto">
                       <label class="form-label" for="cro">Número de CRO</label>
                       <div class="input-group mb-2">
-                        <div class="input-group-prepend">
-                          <div class="input-group-text"><i class="fa-solid fa-envelope fa-2x"></i></div>
-                        </div>
-                        <input type="text" class="form-control" id="cro" name="cro" placeholder="Seu CRO" required>
+                        <input type="text" class="form-control" id="cro" name="cro" placeholder="123456" maxlength="6" required>
                       </div>
                     </div>
                   </div>
+
                   <div class="col-md-3 mb-4 pb-2">
                     <label for="uf_cro" class="pb-2">UF do CRO</label>
                     <select class="select form-select" name="uf_cro" required>
@@ -164,24 +159,18 @@
                     <div class="col-auto">
                       <label class="form-label" for="numero_cnpj">CNPJ</label>
                       <div class="input-group mb-2">
-                        <div class="input-group-prepend">
-                          <div class="input-group-text"><i class="fa-solid fa-envelope fa-2x"></i></div>
-                        </div>
                         <input type="text" class="form-control" id="cnpj" name="numero_cnpj"
-                          placeholder="Número de cnpj" required>
+                          placeholder="76.689.041/0001-07" maxlength="14" required>
                       </div>
                     </div>
                   </div>
                   <div class="row justify-content-center">
                     <div class="col-md-3 mb-4 pb-2">
                       <div class="col-auto">
-                        <label class="form-label" for="nome_legal">Nome Legal</label>
+                        <label class="form-label" for="nome_legal">Nome da Empresa</label>
                         <div class="input-group mb-2">
-                          <div class="input-group-prepend">
-                            <div class="input-group-text"><i class="fa-solid fa-envelope fa-2x"></i></div>
-                          </div>
                           <input type="text" class="form-control" id="nomeLegal" name="nome_legal"
-                            placeholder="Nome Legal" required>
+                            placeholder="Nike" required>
                         </div>
                       </div>
                     </div>
@@ -189,9 +178,6 @@
                       <div class="col-auto">
                         <label class="form-label" for="cpf">CPF</label>
                         <div class="input-group mb-2">
-                          <div class="input-group-prepend">
-                            <div class="input-group-text"><i class="fa-solid fa-phone fa-2x"></i></div>
-                          </div>
                           <input type="text" class="form-control" id="CPF" name="cpf" placeholder="000.000.000-00"
                             maxlength="11" required>
                         </div>
@@ -200,28 +186,23 @@
                   </div>
                 </div>
                 <div class="row">
-                  <h4 class="mb-2 py-4 border-bottom">Residência</h4>
+                  <h4 class="mb-2 py-4 border-bottom row justify-content-center">Residência</h4>
+               <!--   <h4 class="mb-2 py-4 border-bottom row justify-content-center">Dados Profissionais</h4>-->
                 </div>
                 <div class="row justify-content-center pt-4">
                   <div class="col-md-3 mb-4 pb-2">
                     <div class="col-auto">
                       <label class="form-label" for="cep">CEP</label>
                       <div class="input-group mb-2">
-                        <div class="input-group-prepend">
-                          <div class="input-group-text"><i class="fa-solid fa-phone fa-2x"></i></div>
-                        </div>
-                        <input type="text" class="form-control" id="Cep" name="cep" placeholder="00000-00" maxlength="8"
+                        <input type="text" class="form-control" id="Cep" name="cep" placeholder="00000-000" maxlength="8"
                           required>
                       </div>
                     </div>
                   </div>
                   <div class="col-md-3 mb-4 pb-2">
                     <div class="col-auto">
-                      <label class="form-label" for="streetAvenue">Rua</label>
+                      <label class="form-label" for="streetAvenue">Rua/Avenida</label>
                       <div class="input-group mb-2">
-                        <div class="input-group-prepend">
-                          <div class="input-group-text"><i class="fa-solid fa-phone fa-2x"></i></div>
-                        </div>
                         <input type="text" class="form-control" id="streetAvenue" name="street_avenue"
                           placeholder="Rua/Avenida" maxlength="40" required>
                       </div>
@@ -231,10 +212,7 @@
                     <div class="col-auto">
                       <label class="form-label" for="number">Número da Residência</label>
                       <div class="input-group mb-2">
-                        <div class="input-group-prepend">
-                          <div class="input-group-text"><i class="fa-solid fa-phone fa-2x"></i></div>
-                        </div>
-                        <input type="text" class="form-control" id="houseNumber" name="number" placeholder="Número"
+                        <input type="text" class="form-control" id="houseNumber" name="number" placeholder="0000"
                           maxlength="5" required>
                       </div>
                     </div>
@@ -277,9 +255,6 @@
                     <div class="col-auto">
                       <label class="form-label" for="city">Cidade</label>
                       <div class="input-group mb-2">
-                        <div class="input-group-prepend">
-                          <div class="input-group-text"><i class="fa-solid fa-phone fa-2x"></i></div>
-                        </div>
                         <input type="text" class="form-control" id="city" name="city" placeholder="Cidade"
                           maxlength="40" required>
                       </div>
@@ -290,9 +265,6 @@
                     <div class="col-auto">
                       <label class="form-label" for="additional_information">Informações Adicionais</label>
                       <div class="input-group mb-2">
-                        <div class="input-group-prepend">
-                          <div class="input-group-text"><i class="fa-solid fa-phone fa-2x"></i></div>
-                        </div>
                         <input type="text" class="form-control" id="additionalInfo" name="additional_information"
                           placeholder="Ponto de referência, locais próximos, etc..." maxlength="50" required>
                       </div>
@@ -300,17 +272,17 @@
                   </div>
                 </div>
                 <div class="row">
-                  <h4 class="mb-2 py-4 border-bottom">Informações de Acesso</h4>
+                  <h4 class="mb-2 py-4 border-bottom row justify-content-center">Informações de Acesso</h4>
                 </div>
                 <div class="row justify-content-center py-4">
                   <div class="col-md-4 mb-4 pb-2">
                     <div class="col-auto">
-                      <label class="form-label" for="login">Username</label>
+                      <label class="form-label" for="login">Login</label>
                       <div class="input-group mb-2">
                         <div class="input-group-prepend">
                           <div class="input-group-text">@</i></div>
                         </div>
-                        <input type="text" class="form-control" id="username" name="login" placeholder="username"
+                        <input type="text" class="form-control" id="username" name="login" placeholder="g.penha"
                           maxlength="30" required>
                       </div>
                       <small id="usernameHelp" class="form-text text-muted">
@@ -326,7 +298,7 @@
                           <div class="input-group-text">#</i></div>
                         </div>
                         <input type="password" class="form-control" id="password" name="password"
-                          placeholder="Senha de acesso" maxlength="30" required>
+                          placeholder="*****" maxlength="30" required>
                       </div>
                       <small id="usernameHelp" class="form-text text-muted">
                         Você irá utilizar esta senha para acessar sua conta.
@@ -359,6 +331,8 @@
     </div>
   </section>
   </div>
+
+  <script src="{% static 'app/js/register.js' %}"></script>
   <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
     crossorigin="anonymous"></script>
   <script src="\static\app\js\script.js"></script>
