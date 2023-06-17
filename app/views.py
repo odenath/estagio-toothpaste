@@ -150,7 +150,6 @@ def delete_user(request):
     # return HttpResponse("Usuario deletado")
     return redirect('/login/')
 
-
 def recovery_password(request):
 
     return render(request, 'app/recovery-password.html')

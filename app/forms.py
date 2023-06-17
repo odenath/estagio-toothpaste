@@ -36,7 +36,7 @@ class PersonForm(forms.Form):
         cpf = self.cleaned_data['cpf']
 
         if len(cpf) != 11 or not cpf.isdigit():
-            raise ValidationError("O CPF precisa ter 11 digitos e apenas numeros")
+            raise ValidationError("O CPF precisa ter 11 digitos e apenas números ")
 
         return cpf
     
@@ -44,7 +44,7 @@ class PersonForm(forms.Form):
         birth_date = self.cleaned_data['birth_date']
         # Convert to date
         if birth_date > datetime.today().date():
-            raise ValidationError("Birth Date must be in the past")
+            raise ValidationError("A data de nascimento não pode ser maior que a data atual")
         return birth_date
     
 class AddressForm(forms.Form):
