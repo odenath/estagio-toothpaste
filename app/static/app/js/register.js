@@ -25,30 +25,78 @@
 //         });
 //     });
 // });
-
 document.addEventListener('DOMContentLoaded', (event) => {
     const form = document.getElementById('form');
     const campos = document.querySelectorAll('#form input, #form select');
 
-
     // Salvar dados do formulário quando qualquer campo é alterado
     campos.forEach(campo => {
         campo.addEventListener('input', () => {
-            sessionStorage.setItem(campo.name, campo.value);
+            if (campo.type === 'radio') {
+                // Para botões de opção, salvar o valor do botão selecionado
+                if (campo.checked) {
+                    sessionStorage.setItem(campo.name, campo.value);
+                }
+            } else {
+                sessionStorage.setItem(campo.name, campo.value);
+            }
         });
     });
 
     // Carregar dados do formulário ao carregar a página
     window.addEventListener('load', () => {
         campos.forEach(campo => {
-            // const valorSalvo = localStorage.getItem(campo.name);
             const valorSalvo = sessionStorage.getItem(campo.name);
             if (valorSalvo) {
-                campo.value = valorSalvo;
+                if (campo.type === 'radio') {
+                    // Para botões de opção, marcar o botão cujo valor foi salvo
+                    if (campo.value === valorSalvo) {
+                        campo.checked = true;
+                    }
+                } else {
+                    campo.value = valorSalvo;
+                }
             }
         });
     });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// document.addEventListener('DOMContentLoaded', (event) => {
+//     const form = document.getElementById('form');
+//     const campos = document.querySelectorAll('#form input, #form select');
+
+
+//     // Salvar dados do formulário quando qualquer campo é alterado
+//     campos.forEach(campo => {
+//         campo.addEventListener('input', () => {
+//             sessionStorage.setItem(campo.name, campo.value);
+//         });
+//     });
+
+//     // Carregar dados do formulário ao carregar a página
+//     window.addEventListener('load', () => {
+//         campos.forEach(campo => {
+//             // const valorSalvo = localStorage.getItem(campo.name);
+//             const valorSalvo = sessionStorage.getItem(campo.name);
+//             if (valorSalvo) {
+//                 campo.value = valorSalvo;
+//             }
+//         });
+//     });
+// });
 
 
 
