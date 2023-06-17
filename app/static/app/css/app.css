@@ -2,6 +2,11 @@
 	font-family: 'Roboto', sans-serif;
 }
 
+:host, :root {
+    --primary-color: #6750A4;
+	--secondary-color: #79747E;
+}
+
 *,
 ::before,
 ::after {
@@ -19,7 +24,7 @@ h6 {
 	color: inherit;
 }
 
-.btn {
+.button {
 	height: 40px;
 	padding: 0 20px;
 	border: 1px solid;
@@ -31,26 +36,102 @@ h6 {
 	transition: all 0.3s ease-in-out;
 }
 
-.btn.btn-default {
-	background-color: #6750A4;
-	border-color: #6750A4;
+.button.button-default {
+	background-color: var(--primary-color);
+	border-color: var(--primary-color);
 	color: #fff;
 }
 
-.btn.btn-default:hover {
+.button.button-default:hover {
 	background-color: #fff;
-	border-color: #6750A4;
-	color: #6750A4;
+	border-color: var(--primary-color);
+	color: var(--primary-color);
 }
 
-.btn.btn-outline {
+.button.button-outline {
 	background-color: #fff;
-	border-color: #79747E;
-	color: #6750A4;
+	border-color: var(--secondary-color);
+	color: var(--primary-color);
 }
 
-.btn.btn-outline:hover {
-	background-color: #79747E;
-	border-color: #79747E;
+.button.button-outline:hover {
+	background-color: var(--secondary-color);
+	border-color: var(--secondary-color);
 	color: #fff;
+}
+
+.button.button-large {
+	height: 50px;
+	text-transform: none;
+	padding: 0 40px;
+	font-size: 16px;
+}
+
+/* Sidebar */
+.sidebar {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	margin-top: 75px;
+	box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+	width: 240px;
+	z-index: 600;
+	background-color: var(--primary-color);
+}
+
+#LogoutButton {
+	bottom: 40px;
+}
+
+/* @media (min-width: 991.98px) {
+	body:not(.page-login):not(.page-register):not(.page-recovery-password) main {
+		padding-left: 240px;
+	}
+} */
+
+/* Navbar */
+.navbar {
+	padding: 0;
+}
+
+#main-navbar .navbar-toggler {
+	display: block !important;
+}
+
+.container-fluid {
+	background-color: var(--primary-color);
+	height: 75px;
+	text-align: right;
+	align-items: right;
+	align-content: right;
+}
+
+.navbar-toggler {
+	margin-left: 20px;
+}
+
+@media (max-width: 991.98px) {
+	.sidebar {
+		width: 100%;
+	}
+}
+
+body:not(.page-login):not(.page-register):not(.page-recovery-password) main {
+	padding-top: 75px;
+}
+
+.sidebar .active {
+	border-radius: 5px;
+	box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+
+.sidebar-sticky {
+	position: relative;
+	top: 0;
+	height: calc(100vh - 48px);
+	padding-top: 0.5rem;
+	overflow-x: hidden;
+	overflow-y: auto;
+	/* Scrollable contents if viewport is shorter than content. */
 }

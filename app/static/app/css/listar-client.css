@@ -1,7 +1,6 @@
 
-        body {
+        .div_body {
             color: #566787;
-            background: #f5f5f5;
             font-family: 'Varela Round', sans-serif;
             font-size: 13px;
         }
@@ -16,6 +15,7 @@
             padding: 20px 25px;
             border-radius: 3px;
             box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+            border: 1px solid #435d7d;
         }
 
         .table-title {
@@ -25,6 +25,10 @@
             padding: 16px 30px;
             margin: -20px -25px 10px;
             border-radius: 3px 3px 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
         }
 
         .table-title h2 {

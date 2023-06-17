@@ -1,5 +1,5 @@
-* {
-    font-family: 'Roboto', sans-serif;
+body.page-register .default-header {
+	display: none;
 }
 
 .card-registration .select-input.form-control[readonly]:not([disabled]) {
@@ -17,7 +17,7 @@
 }
 
 .card {
-    border: 1px solid #79747E;
+    border: 1px solid var(--secondary-color);
 }
 
 .select {
@@ -30,7 +30,7 @@
 
 .form-control {
     height: 60px;
-    border: 1px solid #79747E;
+    border: 1px solid var(--secondary-color);
     border-radius: 4px;
     color: black;
 }
@@ -44,8 +44,8 @@
 }
 
 .form-btn {
-    background-color: #6750A4;
-    border: 1px solid #6750A4;
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
     color: #fff;
     height: 50px;
     width: 196px;
@@ -62,8 +62,8 @@
 
 .form-btn:hover {
     background-color: #fff;
-    color: #6750A4;
-    border-color: #6750A4;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
     transition: all 0.3s ease-in-out;
 }
 

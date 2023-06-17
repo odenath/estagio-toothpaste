@@ -1,5 +1,6 @@
 {% extends 'app/base.html' %}
 {% load static %}
+{% block page-title %}cadastro-cliente{%endblock%}
 {% block title %} Cadastro de Cliente {%endblock%}
 {% block head %}
 <link rel="stylesheet" href="{% static 'app/css/register.css' %}">
@@ -20,7 +21,7 @@
                                 acessá-la <a class="link-primary" href="{%url 'app:login' %}">aqui</a></span>
                         </div>
 
-                        <form method="post">
+                        <form method="post" id="form">
                             {% csrf_token %}
                             <div class="row">
                                 <h4 class="mb-2 py-4 border-bottom row justify-content-center">Dados Pessoais</h4>
@@ -204,14 +205,16 @@
                         <form/>
                     </div>
                     {% if errors %}
-                    {% for error in errors %}
-                    <div class="alert alert-danger" role="alert">
-                        {{ error }}
-                    </div>
-                    {% endfor %}
+                        <div id="erros">
+                            {% for error in errors %}
+                            <div class="alert alert-danger" role="alert">
+                                {{ error }}
+                            </div>
+                            {% endfor %}
+                        </div>
                     {% endif %}
-                    <div class="row justify-content-center">
-                        <button type="submit" class="form-btn">Finalizar Cadastro</button>
+                    <div class="text-center">
+                        <button type="submit" class="button button-default button-large">Finalizar Cadastro</button>
                     </div>
                     <div class="form-links">
                         <a class="form-link" href="{% url 'app:login' %}">Já tem uma conta? Acesse aqui</a>
@@ -222,11 +225,7 @@
     </div>
 </section>
 {% endblock %}
-{% block scripts %}
-<script src="{% static 'app/js/register.js' %}"></script>
-<script src="https://code.jquery.com/jquery-3.7.0.js"
-    integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
+
+{%block scripts %}
+    <script src="{% static 'app/js/cadastro-cliente.js' %}"></script>
 {% endblock %}

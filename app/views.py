@@ -16,7 +16,7 @@ def home(request):
     if request.user.is_authenticated:
         user = Dentist.objects.filter(customuser=request.user.pk).first()
 
-        return render(request, 'app/index1.html', {'user':user})
+        return render(request, 'app/index.html', {'user':user})
 
     return redirect('/login/')
 
@@ -27,7 +27,7 @@ def cadastro(request):
 
     errors = []
     if request.user.is_authenticated:
-        return redirect('/home/')    
+        return redirect('/home/')
 
 
     elif request.method == 'POST':
@@ -99,7 +99,7 @@ def cadastro(request):
             errors.append(dentist_form.errors.values())
 
             errors = [item for sublist in errors for item in sublist]
-    return render(request, 'app/cadastro.html', {'errors': errors})
+    return render(request, 'app/auth/cadastro.html', {'errors': errors})
 
 # READ
 def logar(request):
@@ -107,7 +107,7 @@ def logar(request):
         return redirect('/home/')
     
     if request.method =='GET':
-        return render(request, 'app/login.html')
+        return render(request, 'app/auth/login.html')
     elif request.method =='POST':
 
         nome = request.POST.get('nome')
@@ -123,7 +123,7 @@ def logar(request):
             login(request, user)
             return redirect('/home/')
         else:
-            return render(request, 'app/login.html')
+            return render(request, 'app/auth/login.html')
 
 
 # UPDATE
@@ -152,7 +152,7 @@ def delete_user(request):
 
 def recovery_password(request):
 
-    return render(request, 'app/recovery-password.html')
+    return render(request, 'app/auth/recovery-password.html')
 
 @login_required
 def sair(request):

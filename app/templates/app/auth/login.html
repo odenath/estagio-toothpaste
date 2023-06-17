@@ -1,0 +1,33 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block page-title %}login{%endblock%}
+{% block title %}Login{%endblock%}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'app/css/auth/login.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="login-container">
+        <div class="form-container">
+            <h1>Login</h1>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="input-container">
+                    <i class="far fa-envelope"></i>
+                    <input type="text" name="nome" placeholder="Digite seu login" required>
+                </div>
+                <div class="input-container">
+                    <i class="fas fa-fingerprint"></i>
+                    <input type="password" name="senha" placeholder="Digite sua senha" required>
+                </div>
+                <div class="buttons-container">
+                    <button type="submit" class="button button-default button-submit">entrar</button>
+                    <a href="/cadastro" class="button-create">
+                        <button type="button" class="button button-outline">criar conta</button>
+                    </a>
+                </div>
+                <a href="/recovery-password">Esqueci minha senha</a>
+            </form>
+        </div>
+    </section>
+{% endblock %}
